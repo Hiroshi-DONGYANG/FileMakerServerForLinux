@@ -1,0 +1,14 @@
+※Windowsと違ってNginxServer内で処理する必要がある
+フォルダへ移動
+$ cd /opt/FileMaker/FileMaker\ Server/NginxServer/htdocs/httpsRoot
+
+$ sudo mkdir .well-know
+$ cd .well-know
+$ sudo mkdir acme-challenge
+$ sudo vi A**************************
+
+A**************************.B******************
+
+を貼り付けて、保存
+
+
