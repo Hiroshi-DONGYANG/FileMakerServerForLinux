@@ -1,11 +1,19 @@
+インストール Nginx用
+$ sudo apt install certbot python3-certbot-nginx
+$ sudo apt install certbot -y
+
+
+
 新規作成時
 $ sudo certbot certonly --manual -d YourDomain.com --agree-tos
+または
+$ sudo certbot certonly --manual -d YourDomain.com --agree-tos --register-unsafely-without-email
 --メッセージ--
 Saving debug log to /var/log/letsencrypt/letsencrypt.log
 Plugins selected: Authenticator manual, Installer None
 Obtaining a new certificate
 Performing the following challenges:
-http-01 challenge for wizfmsrv08.012grp.co.jp
+http-01 challenge for YourDomain.com
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 NOTE: The IP of this machine will be publicly logged as having requested this
@@ -50,7 +58,9 @@ IMPORTANT NOTES:
 
 更新時
 sudo certbot renew
-sudo cp /etc/letsencrypt/live/YourDomain.com/fullchain.pem /opt/FileMaker/FileMaker\ Server/CStore/
+sudo cp /etc/letsencrypt/live/YourDomain.com/cert.pem /opt/FileMaker/FileMaker\ Server/CStore/
 sudo cp /etc/letsencrypt/live/YourDomain.com/privkey.pem /opt/FileMaker/FileMaker\ Server/CStore/
-sudo fmsadmin certificate import /opt/FileMaker/FileMaker\ Server/CStore/fullchain.pem --keyfile /opt/FileMaker/FileMaker\ Server/CStore/privkey.pem -y -u ***** -p *****
+sudo fmsadmin certificate import /opt/FileMaker/FileMaker\ Server/CStore/cert.pem --keyfile /opt/FileMaker/FileMaker\ Server/CStore/privkey.pem -y -u ***** -p *****
+
+再起動
 sudo service fmshelper restart
