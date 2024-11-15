@@ -1,4 +1,4 @@
-FileMaker Server インストール
+⭐️FileMaker Server インストール
 　※注意
 　インストール時に Documentsフォルダの中身を削除しようとする。
 　GoogleDriveをマウントしているとDriveの中身を削除して同期してしまうため、
@@ -6,3 +6,8 @@ FileMaker Server インストール
 
 　アンマウントコマンド
   sudo fusermount -u GDrive
+
+
+⭐️FileMaker Server アンインストール
+ sudo service fmshelper stop
+ sudo apt remove filemaker-server
